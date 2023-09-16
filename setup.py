@@ -8,7 +8,7 @@ with open("requirements.txt", "r", encoding="utf-8") as f:
 
 setup(
     name="geniusrise-prompt-actions",
-    version="0.1.4",
+    version="0.1.0",
     packages=find_packages(exclude=["tests", "tests.*"]),
     install_requires=requirements,
     python_requires=">=3.10",
