@@ -1,6 +1,7 @@
-from typing import Union, List, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Get User Details

@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
 from typing import Dict, Union
+
+import requests  # type: ignore
 
 
 # Create Project
@@ -21,7 +22,10 @@ def create_project(
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/projects"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
     payload = {"name": name, "body": body}
 
     try:
@@ -46,7 +50,10 @@ def read_project(auth_token: str, project_id: int) -> Union[Dict[str, Union[str,
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/projects/{project_id}"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
 
     try:
         response = requests.get(url, headers=headers)
@@ -72,7 +79,10 @@ def update_project(auth_token: str, project_id: int, name: str, body: str) -> Un
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/projects/{project_id}"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
     payload = {"name": name, "body": body}
 
     try:
@@ -97,7 +107,10 @@ def delete_project(auth_token: str, project_id: int) -> str:
     - str: A success message or an error message.
     """
     url = f"https://api.github.com/projects/{project_id}"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
 
     try:
         response = requests.delete(url, headers=headers)
@@ -122,7 +135,10 @@ def add_project_column(auth_token: str, project_id: int, name: str) -> Union[Dic
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/projects/{project_id}/columns"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
     payload = {"name": name}
 
     try:
@@ -148,7 +164,10 @@ def manage_project_column(auth_token: str, column_id: int, name: str) -> Union[D
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/projects/columns/{column_id}"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
     payload = {"name": name}
 
     try:
@@ -174,7 +193,10 @@ def add_project_card(auth_token: str, column_id: int, note: str) -> Union[Dict[s
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/projects/columns/{column_id}/cards"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
     payload = {"note": note}
 
     try:
@@ -200,7 +222,10 @@ def manage_project_card(auth_token: str, card_id: int, note: str) -> Union[Dict[
     - Union[Dict[str, Union[str, int]], str]: A dictionary containing the response from GitHub API or an error message.
     """
     url = f"https://api.github.com/projects/columns/cards/{card_id}"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.inertia-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.inertia-preview+json",
+    }
     payload = {"note": note}
 
     try:

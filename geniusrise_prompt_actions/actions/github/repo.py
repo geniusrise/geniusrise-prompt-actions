@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Dict, Union, Optional, List
+from typing import Dict, List, Optional, Union
+
+import requests  # type: ignore
 
 
 def create_repository(
@@ -93,7 +94,11 @@ def update_repository(
 
 
 def list_user_repositories(
-    auth_token: str, username: str, sort: Optional[str] = "created", per_page: int = 30, page: int = 1
+    auth_token: str,
+    username: str,
+    sort: Optional[str] = "created",
+    per_page: int = 30,
+    page: int = 1,
 ) -> Union[List[Dict[str, Union[str, int]]], str]:
     """
     Lists repositories for a specific user with pagination.
@@ -124,7 +129,11 @@ def list_user_repositories(
 
 
 def list_organization_repositories(
-    auth_token: str, org: str, sort: Optional[str] = "created", per_page: int = 30, page: int = 1
+    auth_token: str,
+    org: str,
+    sort: Optional[str] = "created",
+    per_page: int = 30,
+    page: int = 1,
 ) -> Union[List[Dict[str, Union[str, int]]], str]:
     """
     Lists repositories for a specific organization with pagination.
@@ -325,7 +334,10 @@ def get_repository_topics(auth_token: str, owner: str, repo: str) -> Union[List[
     - Union[List[str], str]: A list of topics or an error message.
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/topics"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.mercy-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.mercy-preview+json",
+    }
 
     try:
         response = requests.get(url, headers=headers)
@@ -351,7 +363,10 @@ def set_repository_topics(auth_token: str, owner: str, repo: str, topics: List[s
     - Union[List[str], str]: A list of topics or an error message.
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/topics"
-    headers = {"Authorization": f"token {auth_token}", "Accept": "application/vnd.github.mercy-preview+json"}
+    headers = {
+        "Authorization": f"token {auth_token}",
+        "Accept": "application/vnd.github.mercy-preview+json",
+    }
     payload = {"names": topics}
 
     try:
@@ -421,7 +436,13 @@ def create_release(
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/releases"
     headers = {"Authorization": f"token {auth_token}"}
-    payload = {"tag_name": tag_name, "name": name, "body": body, "draft": draft, "prerelease": prerelease}
+    payload = {
+        "tag_name": tag_name,
+        "name": name,
+        "body": body,
+        "draft": draft,
+        "prerelease": prerelease,
+    }
 
     try:
         response = requests.post(url, headers=headers, json=payload)
@@ -463,7 +484,13 @@ def update_release(
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/releases/{release_id}"
     headers = {"Authorization": f"token {auth_token}"}
-    payload = {"tag_name": tag_name, "name": name, "body": body, "draft": draft, "prerelease": prerelease}
+    payload = {
+        "tag_name": tag_name,
+        "name": name,
+        "body": body,
+        "draft": draft,
+        "prerelease": prerelease,
+    }
 
     try:
         response = requests.patch(url, headers=headers, json=payload)
@@ -531,7 +558,13 @@ def list_tags(
 
 # Create Tag
 def create_tag(
-    auth_token: str, owner: str, repo: str, tag: str, message: str, object: str, type: str = "commit"
+    auth_token: str,
+    owner: str,
+    repo: str,
+    tag: str,
+    message: str,
+    object: str,
+    type: str = "commit",
 ) -> Union[Dict[str, Union[str, int]], str]:
     """
     Creates a new tag for a GitHub repository.

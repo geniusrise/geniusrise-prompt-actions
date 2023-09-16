@@ -1,6 +1,7 @@
-from typing import Union, List, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Create Group
@@ -160,7 +161,12 @@ def list_group_projects(server_url: str, auth_token: str, group_id: int) -> Unio
 
 # Manage Group Members
 def manage_group_members(
-    server_url: str, auth_token: str, group_id: int, user_id: int, action: str, access_level: int = 30
+    server_url: str,
+    auth_token: str,
+    group_id: int,
+    user_id: int,
+    action: str,
+    access_level: int = 30,
 ) -> str:
     """
     Manages members of a GitLab group by its ID.

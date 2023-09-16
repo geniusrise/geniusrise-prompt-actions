@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Dict, Union, Optional, List
+from typing import Dict, List, Optional, Union
+
+import requests  # type: ignore
 
 
 # Create Issue
@@ -32,7 +33,13 @@ def create_issue(
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/issues"
     headers = {"Authorization": f"token {auth_token}"}
-    payload = {"title": title, "body": body, "labels": labels, "assignees": assignees, "milestone": milestone}
+    payload = {
+        "title": title,
+        "body": body,
+        "labels": labels,
+        "assignees": assignees,
+        "milestone": milestone,
+    }
 
     try:
         response = requests.post(url, headers=headers, json=payload)
@@ -122,7 +129,12 @@ def update_issue(
 
 # List Issues
 def list_issues(
-    auth_token: str, owner: str, repo: str, state: str = "open", per_page: int = 30, page: int = 1
+    auth_token: str,
+    owner: str,
+    repo: str,
+    state: str = "open",
+    per_page: int = 30,
+    page: int = 1,
 ) -> Union[List[Dict[str, Union[str, int]]], str]:
     """
     Lists issues for a GitHub repository based on various filters.
@@ -152,7 +164,14 @@ def list_issues(
 
 # Create Pull Request
 def create_pull_request(
-    auth_token: str, owner: str, repo: str, title: str, body: str, head: str, base: str, draft: bool = False
+    auth_token: str,
+    owner: str,
+    repo: str,
+    title: str,
+    body: str,
+    head: str,
+    base: str,
+    draft: bool = False,
 ) -> Union[Dict[str, Union[str, int]], str]:
     """
     Creates a new pull request for a GitHub repository.
@@ -278,7 +297,11 @@ def merge_pull_request(
     """
     url = f"https://api.github.com/repos/{owner}/{repo}/pulls/{pull_number}/merge"
     headers = {"Authorization": f"token {auth_token}"}
-    payload = {"commit_title": commit_title, "commit_message": commit_message, "merge_method": merge_method}
+    payload = {
+        "commit_title": commit_title,
+        "commit_message": commit_message,
+        "merge_method": merge_method,
+    }
 
     try:
         response = requests.put(url, headers=headers, json=payload)

@@ -1,11 +1,16 @@
-import requests  # type: ignore
 import logging
-from typing import Union, Dict, List, Any
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Create Project
 def create_project(
-    server_url: str, auth_token: str, name: str, description: str = "", visibility: str = "private"
+    server_url: str,
+    auth_token: str,
+    name: str,
+    description: str = "",
+    visibility: str = "private",
 ) -> Union[Dict[str, Any], str]:
     """
     Creates a new GitLab project.
@@ -60,7 +65,12 @@ def read_project(server_url: str, auth_token: str, project_id: int) -> Union[Dic
 
 # Update Project
 def update_project(
-    server_url: str, auth_token: str, project_id: int, name: str, description: str = "", visibility: str = "private"
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    name: str,
+    description: str = "",
+    visibility: str = "private",
 ) -> Union[Dict[str, Any], str]:
     """
     Updates a GitLab project by its ID.
@@ -281,7 +291,12 @@ def list_project_issues(server_url: str, auth_token: str, project_id: int) -> Un
 
 # Manage Project Issues
 def manage_project_issues(
-    server_url: str, auth_token: str, project_id: int, issue_id: int, title: str, description: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    issue_id: int,
+    title: str,
+    description: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Manages issues of a GitLab project by its ID.
@@ -337,7 +352,12 @@ def list_project_merge_requests(server_url: str, auth_token: str, project_id: in
 
 # Manage Project Merge Requests
 def manage_project_merge_requests(
-    server_url: str, auth_token: str, project_id: int, merge_request_id: int, title: str, description: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    merge_request_id: int,
+    title: str,
+    description: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Manages merge requests of a GitLab project by its ID.

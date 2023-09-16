@@ -1,11 +1,17 @@
-from typing import Union, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, Union
+
+import requests  # type: ignore
 
 
 # Create Snippet
 def create_snippet(
-    server_url: str, auth_token: str, title: str, file_name: str, content: str, visibility: str
+    server_url: str,
+    auth_token: str,
+    title: str,
+    file_name: str,
+    content: str,
+    visibility: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Creates a new snippet in the GitLab instance.
@@ -23,7 +29,12 @@ def create_snippet(
     """
     url = f"{server_url}/api/v4/snippets"
     headers = {"Authorization": f"Bearer {auth_token}"}
-    payload = {"title": title, "file_name": file_name, "content": content, "visibility": visibility}
+    payload = {
+        "title": title,
+        "file_name": file_name,
+        "content": content,
+        "visibility": visibility,
+    }
 
     try:
         response = requests.post(url, headers=headers, json=payload)
@@ -61,7 +72,13 @@ def read_snippet(server_url: str, auth_token: str, snippet_id: int) -> Union[Dic
 
 # Update Snippet
 def update_snippet(
-    server_url: str, auth_token: str, snippet_id: int, title: str, file_name: str, content: str, visibility: str
+    server_url: str,
+    auth_token: str,
+    snippet_id: int,
+    title: str,
+    file_name: str,
+    content: str,
+    visibility: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates an existing snippet in the GitLab instance by its ID.
@@ -80,7 +97,12 @@ def update_snippet(
     """
     url = f"{server_url}/api/v4/snippets/{snippet_id}"
     headers = {"Authorization": f"Bearer {auth_token}"}
-    payload = {"title": title, "file_name": file_name, "content": content, "visibility": visibility}
+    payload = {
+        "title": title,
+        "file_name": file_name,
+        "content": content,
+        "visibility": visibility,
+    }
 
     try:
         response = requests.put(url, headers=headers, json=payload)

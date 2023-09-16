@@ -1,6 +1,7 @@
-from typing import Union, List, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Create Issue
@@ -61,7 +62,12 @@ def read_issue(server_url: str, auth_token: str, project_id: int, issue_id: int)
 
 # Update Issue
 def update_issue(
-    server_url: str, auth_token: str, project_id: int, issue_id: int, title: str, description: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    issue_id: int,
+    title: str,
+    description: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates details of a GitLab issue by its ID and project ID.
@@ -174,7 +180,13 @@ def list_issue_labels(
 
 # Manage Issue Notes
 def manage_issue_notes(
-    server_url: str, auth_token: str, project_id: int, issue_id: int, note_id: int, action: str, body: str = ""
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    issue_id: int,
+    note_id: int,
+    action: str,
+    body: str = "",
 ) -> str:
     """
     Manages notes (comments) of a GitLab issue by its ID and project ID.

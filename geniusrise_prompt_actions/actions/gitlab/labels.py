@@ -1,6 +1,7 @@
-from typing import Union, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, Union
+
+import requests  # type: ignore
 
 
 # Create Label
@@ -40,7 +41,12 @@ def create_label(
 
 # Create Milestone
 def create_milestone(
-    server_url: str, auth_token: str, project_id: int, title: str, description: str, due_date: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    title: str,
+    description: str,
+    due_date: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Creates a new milestone in a GitLab project.
@@ -97,7 +103,12 @@ def read_label(server_url: str, auth_token: str, project_id: int, label_id: int)
 
 # Update Label
 def update_label(
-    server_url: str, auth_token: str, project_id: int, label_id: int, name: str, color: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    label_id: int,
+    name: str,
+    color: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates an existing label in a GitLab project by its ID.
@@ -180,7 +191,13 @@ def read_milestone(server_url: str, auth_token: str, project_id: int, milestone_
 
 # Update Milestone
 def update_milestone(
-    server_url: str, auth_token: str, project_id: int, milestone_id: int, title: str, description: str, due_date: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    milestone_id: int,
+    title: str,
+    description: str,
+    due_date: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates an existing milestone in a GitLab project by its ID.

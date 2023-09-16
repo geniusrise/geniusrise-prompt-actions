@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
 from typing import Dict, Union
+
+import requests  # type: ignore
 
 
 # Create Gist

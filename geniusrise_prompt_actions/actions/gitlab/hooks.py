@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Union, Dict, Any
+from typing import Any, Dict, Union
+
+import requests  # type: ignore
 
 
 # Create System Hook
@@ -22,7 +23,11 @@ def create_system_hook(
     """
     api_url = f"{server_url}/api/v4/hooks"
     headers = {"Authorization": f"Bearer {auth_token}"}
-    payload = {"url": url, "push_events": push_events, "tag_push_events": tag_push_events}
+    payload = {
+        "url": url,
+        "push_events": push_events,
+        "tag_push_events": tag_push_events,
+    }
 
     try:
         response = requests.post(api_url, headers=headers, json=payload)
@@ -60,7 +65,12 @@ def read_system_hook(server_url: str, auth_token: str, hook_id: int) -> Union[Di
 
 # Update System Hook
 def update_system_hook(
-    server_url: str, auth_token: str, hook_id: int, url: str, push_events: bool, tag_push_events: bool
+    server_url: str,
+    auth_token: str,
+    hook_id: int,
+    url: str,
+    push_events: bool,
+    tag_push_events: bool,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates an existing system hook in the GitLab instance by its ID.
@@ -78,7 +88,11 @@ def update_system_hook(
     """
     url = f"{server_url}/api/v4/hooks/{hook_id}"
     headers = {"Authorization": f"Bearer {auth_token}"}
-    payload = {"url": url, "push_events": push_events, "tag_push_events": tag_push_events}
+    payload = {
+        "url": url,
+        "push_events": push_events,
+        "tag_push_events": tag_push_events,
+    }
 
     try:
         response = requests.put(url, headers=headers, json=payload)

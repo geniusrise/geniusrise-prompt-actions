@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Union, Dict, List, Any
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # List Branches
@@ -111,7 +112,12 @@ def list_tags(server_url: str, auth_token: str, project_id: int) -> Union[List[D
 
 # Create Tag
 def create_tag(
-    server_url: str, auth_token: str, project_id: int, tag_name: str, ref: str, message: str = ""
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    tag_name: str,
+    ref: str,
+    message: str = "",
 ) -> Union[Dict[str, Any], str]:
     """
     Creates a new tag in a GitLab repository by its project ID.

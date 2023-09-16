@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Dict, Union, Optional, List
+from typing import Dict, List, Optional, Union
+
+import requests  # type: ignore
 
 
 # Get User Details
@@ -52,7 +53,13 @@ def update_user_profile(
     """
     url = "https://api.github.com/user"
     headers = {"Authorization": f"token {auth_token}"}
-    payload = {"name": name, "email": email, "bio": bio, "location": location, "hireable": hireable}
+    payload = {
+        "name": name,
+        "email": email,
+        "bio": bio,
+        "location": location,
+        "hireable": hireable,
+    }
 
     try:
         response = requests.patch(url, headers=headers, json=payload)

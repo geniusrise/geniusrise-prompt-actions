@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Dict, Union, List
+from typing import Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Create Organization

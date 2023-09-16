@@ -1,7 +1,8 @@
-import requests  # type: ignore
-import logging
-from typing import Dict, Union, List
 import base64
+import logging
+from typing import Dict, List, Union
+
+import requests  # type: ignore
 
 
 # List Workflows for Repository

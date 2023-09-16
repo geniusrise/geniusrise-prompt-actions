@@ -1,6 +1,7 @@
-from typing import Union, List, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # List Runners
@@ -29,7 +30,11 @@ def list_runners(server_url: str, auth_token: str) -> Union[List[Dict[str, Any]]
 
 # Create Runner
 def create_runner(
-    server_url: str, auth_token: str, description: str, active: bool, tag_list: List[str]
+    server_url: str,
+    auth_token: str,
+    description: str,
+    active: bool,
+    tag_list: List[str],
 ) -> Union[Dict[str, Any], str]:
     """
     Creates a new runner in the GitLab instance.

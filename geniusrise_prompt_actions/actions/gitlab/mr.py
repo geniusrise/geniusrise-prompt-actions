@@ -1,11 +1,17 @@
-from typing import Union, List, Dict, Any
-import requests  # type: ignore
 import logging
+from typing import Any, Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Create Merge Request
 def create_merge_request(
-    server_url: str, auth_token: str, project_id: int, source_branch: str, target_branch: str, title: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    source_branch: str,
+    target_branch: str,
+    title: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Creates a new merge request in a GitLab project.
@@ -23,7 +29,11 @@ def create_merge_request(
     """
     url = f"{server_url}/api/v4/projects/{project_id}/merge_requests"
     headers = {"Authorization": f"Bearer {auth_token}"}
-    payload = {"source_branch": source_branch, "target_branch": target_branch, "title": title}
+    payload = {
+        "source_branch": source_branch,
+        "target_branch": target_branch,
+        "title": title,
+    }
 
     try:
         response = requests.post(url, headers=headers, json=payload)
@@ -64,7 +74,12 @@ def read_merge_request(
 
 # Update Merge Request
 def update_merge_request(
-    server_url: str, auth_token: str, project_id: int, merge_request_id: int, title: str, description: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    merge_request_id: int,
+    title: str,
+    description: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates details of a GitLab merge request by its ID and project ID.
@@ -177,7 +192,13 @@ def list_merge_request_commits(
 
 # Manage Merge Request Notes
 def manage_merge_request_notes(
-    server_url: str, auth_token: str, project_id: int, merge_request_id: int, note_id: int, action: str, body: str = ""
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    merge_request_id: int,
+    note_id: int,
+    action: str,
+    body: str = "",
 ) -> str:
     """
     Manages notes (comments) of a GitLab merge request by its ID and project ID.

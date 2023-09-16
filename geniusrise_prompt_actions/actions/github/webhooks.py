@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Dict, Union, List
+from typing import Dict, List, Union
+
+import requests  # type: ignore
 
 
 # Search Code
@@ -29,7 +30,12 @@ def search_code(auth_token: str, query: str) -> Union[Dict[str, Union[str, int]]
 
 # Create Webhook for Repository
 def create_repo_webhook(
-    auth_token: str, owner: str, repo: str, config: Dict[str, str], events: List[str], active: bool = True
+    auth_token: str,
+    owner: str,
+    repo: str,
+    config: Dict[str, str],
+    events: List[str],
+    active: bool = True,
 ) -> Union[Dict[str, Union[str, int]], str]:
     """
     Creates a new webhook for a GitHub repository.
@@ -86,7 +92,13 @@ def read_repo_webhook(auth_token: str, owner: str, repo: str, hook_id: int) -> U
 
 # Update Webhook for Repository
 def update_repo_webhook(
-    auth_token: str, owner: str, repo: str, hook_id: int, config: Dict[str, str], events: List[str], active: bool = True
+    auth_token: str,
+    owner: str,
+    repo: str,
+    hook_id: int,
+    config: Dict[str, str],
+    events: List[str],
+    active: bool = True,
 ) -> Union[Dict[str, Union[str, int]], str]:
     """
     Updates a webhook for a GitHub repository.
@@ -144,7 +156,11 @@ def delete_repo_webhook(auth_token: str, owner: str, repo: str, hook_id: int) ->
 
 # Create Webhook for Organization
 def create_org_webhook(
-    auth_token: str, org: str, config: Dict[str, str], events: List[str], active: bool = True
+    auth_token: str,
+    org: str,
+    config: Dict[str, str],
+    events: List[str],
+    active: bool = True,
 ) -> Union[Dict[str, Union[str, int]], str]:
     """
     Creates a new webhook for a GitHub organization.
@@ -199,7 +215,12 @@ def read_org_webhook(auth_token: str, org: str, hook_id: int) -> Union[Dict[str,
 
 # Update Webhook for Organization
 def update_org_webhook(
-    auth_token: str, org: str, hook_id: int, config: Dict[str, str], events: List[str], active: bool = True
+    auth_token: str,
+    org: str,
+    hook_id: int,
+    config: Dict[str, str],
+    events: List[str],
+    active: bool = True,
 ) -> Union[Dict[str, Union[str, int]], str]:
     """
     Updates a webhook for a GitHub organization.

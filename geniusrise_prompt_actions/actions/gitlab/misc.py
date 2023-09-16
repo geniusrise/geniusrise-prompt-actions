@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Union, Dict, Any
+from typing import Any, Dict, Union
+
+import requests  # type: ignore
 
 
 # List Todos

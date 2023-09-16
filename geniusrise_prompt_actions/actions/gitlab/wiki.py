@@ -1,6 +1,7 @@
-import requests  # type: ignore
 import logging
-from typing import Union, Dict, Any
+from typing import Any, Dict, Union
+
+import requests  # type: ignore
 
 
 # Create Wiki Page
@@ -61,7 +62,12 @@ def read_wiki_page(server_url: str, auth_token: str, project_id: int, slug: str)
 
 # Update Wiki Page
 def update_wiki_page(
-    server_url: str, auth_token: str, project_id: int, slug: str, title: str, content: str
+    server_url: str,
+    auth_token: str,
+    project_id: int,
+    slug: str,
+    title: str,
+    content: str,
 ) -> Union[Dict[str, Any], str]:
     """
     Updates an existing wiki page in a GitLab project by its slug.
